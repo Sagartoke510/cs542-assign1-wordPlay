@@ -1,10 +1,10 @@
 package wordPlay.stats;
 
-public class StatsCollector {
+public class StatsProcessor {
 	
 	private final Stats matrix;
 	
-	public StatsCollector() {
+	public StatsProcessor() {
 		matrix = new Stats();
 	}
 	
@@ -14,6 +14,10 @@ public class StatsCollector {
 		for (String word : sentence.split("\\s+")) {
 			matrix.process(word);
 		}
+	}
+	
+	public String getAll() {
+		return matrix.toString();
 	}
 	
 }

@@ -1,6 +1,5 @@
 package wordPlay.stats;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
@@ -11,7 +10,7 @@ public class Stats {
 	private int charCount = 0;
 	private int sentenceCount = 0;
 	
-	private HashMap<String, Integer> wordCount = new HashMap();
+	private HashMap<String, Integer> wordCount = new HashMap<>();
 	
 	public void incrementSentence() {
 		sentenceCount++;
@@ -22,6 +21,7 @@ public class Stats {
 	}
 	
 	public void incrementWord(String word) {
+		word = word.toLowerCase().trim();
 		int count = wordCount.containsKey(word) ? wordCount.get(word) : 0;
 		wordCount.put(word, count+1);
 	}
@@ -33,6 +33,7 @@ public class Stats {
 //		} else if (longest.get(0).length() == word.length()) {
 //			longest.add(word);
 //		}
+		word = word.replaceAll("[^a-zA-Z0-9]", "");
 		if (longest.length() < word.length()) {
 			longest = word;
 		}
@@ -46,15 +47,15 @@ public class Stats {
 	
 	/********** Stats Getters ***********/
 	
-	public int getAvgWordCount() {
+	public double getAvgWordCount() {
 		int sum = 0;
 		for (Entry<String, Integer> word : wordCount.entrySet()) {
 			sum += word.getValue();
 		}
-		return sum / this.sentenceCount;
+		return (sum * 1.0) / this.sentenceCount;
 	}
-	public int getAvgCharCount() {
-		return this.charCount / this.sentenceCount;
+	public double getAvgCharCount() {
+		return (this.charCount * 1.0) / this.sentenceCount;
 	}
 	public String getMaxFreqWord() {
 		int maxFreq = 0;
@@ -73,8 +74,8 @@ public class Stats {
 
 	@Override
 	public String toString() {
-		return "AVG_NUMBER_WORDS_PER_SENTENCE = " + String.format("%.2f", this.getAvgWordCount()) + "\n" + 
-				"AVG_NUM_CHARS_PER_SENTENCE = " + String.format("%.2f", this.getAvgCharCount()) + "\n" + 
+		return "AVG_NUMBER_WORDS_PER_SENTENCE = " + String.format("%.02f", this.getAvgWordCount()) + "\n" + 
+				"AVG_NUM_CHARS_PER_SENTENCE = " + String.format("%.02f", this.getAvgCharCount()) + "\n" + 
 				"MAX_FREQ_WORD = " + this.getMaxFreqWord() + "\n" + 
 				"LONGEST_WORD = " + this.getLongestWord();
 	}
