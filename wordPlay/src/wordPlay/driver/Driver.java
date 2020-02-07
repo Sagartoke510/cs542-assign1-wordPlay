@@ -26,6 +26,7 @@ public class Driver {
 		}
 		
 		FileProcessor.Validators.fileValidator(args[0]).run();
+		FileProcessor.Validators.fileContentValidator(args[0]);
 
 		String filename = null;
 		if (!FileProcessor.createIfNotExists(filename = args[1]) ||
