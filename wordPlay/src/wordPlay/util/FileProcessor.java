@@ -100,7 +100,7 @@ public class FileProcessor implements Closeable {
 	}
 	
 	/**method checking whether line is read or not 
-	 *   
+	 *  @return {code Boolean} returns line for true and false if exception
 	 */
 	public boolean next() {
 		if (br == null) openReader();

@@ -38,7 +38,7 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface, Cl
 	/**method for writing to file
 	 * @param destination name of the file to be written
 	 * @param writeContent reversed string to the file
-	 * @return{@code String} with most frequent word from the file 
+	 * 
 	 */
 	@Override
 	public void writeToFile(String destination, String writeContent) {
