@@ -52,6 +52,9 @@ public class SentenceHandler {
 		return returnVal;
 	}
 	
+	/** get all the calculations
+	 * 
+	 */
 	public String getStats() {
 		return stats.getAll();
 	}

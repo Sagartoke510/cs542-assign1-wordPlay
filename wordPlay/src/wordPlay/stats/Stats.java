@@ -14,20 +14,36 @@ public class Stats {
 
 	private HashMap<String, Integer> wordCount = new HashMap<>();
 
+	/**Increment Sentence counter
+	 * @param 
+	 * @return 
+	 */
 	public void incrementSentence() {
 		sentenceCount++;
 	}
-
+	
+	/**Increment Sentence counter
+	 * @param sentence for the line
+	 * @return
+	 */
 	public void incrementCharacter(String sentence) {
 		charCount += sentence.length();
 	}
 
+	/**Increment Word counter
+	 * @param sentence for the line
+	 * @return
+	 */
 	public void incrementWord(String word) {
 		word = word.toLowerCase().trim();
 		int count = wordCount.containsKey(word) ? wordCount.get(word) : 0;
 		wordCount.put(word, count + 1);
 	}
 
+	/**processing longest word
+	 * @param words from the lines
+	 * @return
+	 */
 	public void processLongest(String word) {
 //		if (longest.isEmpty() || longest.get(0).length() < word.length()) {
 //			longest.clear();
@@ -41,6 +57,10 @@ public class Stats {
 		}
 	}
 
+	/**word increment and longest word processes
+	 * @param words from the lines
+	 * @return
+	 */
 	public void process(String word) {
 		incrementWord(word);
 		processLongest(word);
@@ -48,6 +68,10 @@ public class Stats {
 
 	/********** Stats Getters ***********/
 
+	/**get the average word count per sentence
+	 * @param 
+	 * @return{@code double} with average word count per sentence
+	 */
 	public double getAvgWordCount() {
 		int sum = 0;
 		for (Entry<String, Integer> word : wordCount.entrySet()) {
@@ -56,10 +80,18 @@ public class Stats {
 		return (sum * 1.0) / this.sentenceCount;
 	}
 
+	/**method for average character per sentence
+	 * @param 
+	 * @return{@code double} with average character count per sentence 
+	 */
 	public double getAvgCharCount() {
 		return (this.charCount * 1.0) / this.sentenceCount;
 	}
 
+	/**method for most frequent word 
+	 * @param 
+	 * @return{@code String} with most frequent word from the file 
+	 */
 	public String getMaxFreqWord() {
 		int maxFreq = 0;
 		String retWord = null;
@@ -72,10 +104,19 @@ public class Stats {
 		return retWord;
 	}
 
+	/**method for getting longest word
+	 * @param 
+	 * @return{@code String} with most longest from the file 
+	 */
 	public String getLongestWord() {
 		return this.longest;
 	}
 
+	/**method for returning precised values
+	 * @param d word or char from file 
+	 * @param precision precision value
+	 * @return{@code String} with precision of upto 2 decimals
+	 */
 	private String precision(double d, int precision) {
 		String ret;
 		if (ROUND_UP)

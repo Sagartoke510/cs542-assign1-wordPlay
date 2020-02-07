@@ -24,6 +24,10 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface, Cl
 		this.filenames = filenames;
 	}
 
+	/**method for writing to the console
+	 * @param writeContent reversed string to the console
+	 * 
+	 */
 	@Override
 	public void writeToStdOut(String writeContent) {
 		if (writers.get("stdout") == null)
@@ -31,6 +35,11 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface, Cl
 		write(writers.get("stdout"), writeContent);
 	}
 
+	/**method for writing to file
+	 * @param destination name of the file to be written
+	 * @param writeContent reversed string to the file
+	 * @return{@code String} with most frequent word from the file 
+	 */
 	@Override
 	public void writeToFile(String destination, String writeContent) {
 		if (writers.get(destination) == null)
@@ -43,6 +52,10 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface, Cl
 		write(writers.get(destination), writeContent);
 	}
 	
+	/**method for handling files
+	 * @param fileName name of the file
+	 * @return{@code File} with correct file
+	 */
 	private File getFileHandle(String filename) {
 		for (String file : filenames) {
 			if (filename.equalsIgnoreCase(file))
@@ -51,6 +64,12 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface, Cl
 		return null;
 	}
 	
+	
+	/**method for writing into the file
+	 * @param out object 
+	 * @content contents of the file
+	 * 
+	 */
 	private void write(BufferedWriter out, String content) {
 		try {
 			out.append(content);
@@ -59,6 +78,9 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface, Cl
 			e.printStackTrace();
 		}
 	}
+	
+	/**method forclosing all the write buffers
+	  */
 
 	@Override
 	public void close() throws IOException {

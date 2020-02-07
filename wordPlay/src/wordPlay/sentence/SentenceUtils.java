@@ -2,6 +2,10 @@ package wordPlay.sentence;
 
 public class SentenceUtils {
 	
+	/** Reverse the String
+	 * @param word from the sentence
+	 * @return {@code String} with reversed words
+	 */
 	public String reverse(String word) {
 		
 		char[] chars = word.toCharArray();
