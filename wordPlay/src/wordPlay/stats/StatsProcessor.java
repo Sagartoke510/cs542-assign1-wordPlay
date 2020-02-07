@@ -9,11 +9,14 @@ public class StatsProcessor {
 	}
 	
 	public void calculateStats(String sentence) {
-		matrix.incrementSentence();
 		matrix.incrementCharacter(sentence);
 		for (String word : sentence.split("\\s+")) {
 			matrix.process(word);
 		}
+	}
+	
+	public void incrementSentenceCount() {
+		matrix.incrementSentence();
 	}
 	
 	public String getAll() {
