@@ -36,13 +36,19 @@ Assumptions:
 3. Input arguments to the run command are in the order input.txt file path, output.txt file path, metrics.txt file path.
 
 Data structures:
-  Arrays - Used character array for storing characters of each word and reversing the characters of the string. Also used for average number of characters.
-  Arrays - Used for storing words for finding the longest word.
-  HashMap - Used for storing words as key and count of frequency.
-  TreeMap - Used for sorting the words by implementing the Comparator interface to compare the value associated with the key for sorting the TreeMap.
+  1. Arrays - Used character array for storing characters of each word and reversing the characters of the string. Also used for average number of characters.
+  2. Arrays - Used for storing words for finding the longest word.
+  3. HashMap - Used for storing words as key and count of frequency.
+  4. TreeMap - Used for sorting the words by implementing the Comparator interface to compare the value associated with the key for sorting the TreeMap.
+
+
 External Materials:
+  
   Used HashMap, TreeMap as well as implementing the Comparator interface's compare method to find the most frequent words in the sentence.
+
+
 Compiling:
+
   Follow the instruction as mentioned above.
 Run:
   Follow the instructions as mentioned above.
